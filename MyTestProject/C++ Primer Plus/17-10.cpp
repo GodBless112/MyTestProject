@@ -1,0 +1,35 @@
+﻿// static.cpp -- using a static local variable
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<exception>
+#include "test.h"
+// constants
+// function prototype
+using namespace std;
+
+int main(void)
+{
+	cout << fixed << right;
+	cout << setw(6) << "N" << setw(14) << "squre root"
+		<< setw(15) << "fourth root\n";
+	double root;
+	for (int n = 10; n <= 100; n += 10)
+	{
+		root = sqrt(double(n));
+		cout << setw(6) << setfill('.') << n << setfill(' ')
+			<< setw(12) << setprecision(3) << root
+			<< setw(14) << setprecision(4) << sqrt(root)
+			<< endl;
+	}
+	// code to keep window open for MSVC++
+	cin.clear();
+	while (cin.get() != '\n')
+		continue;
+	cin.get();
+
+	return 0;
+}
+
+
+
