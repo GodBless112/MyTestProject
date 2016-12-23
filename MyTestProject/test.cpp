@@ -58,7 +58,14 @@ int DisjSets::find(int x)
 
 void DisjSets::unionSets(int root1, int root2)
 {
-	s[root2] = root1;
+	if (s[root2] < s[root1])
+		s[root1] = root2;
+	else
+	{
+		if (s[root1] = s[root2])	//高度一样时高度增加
+			s[root1]--;
+		s[root2] = root1;
+	}
 }
 
 int main()
