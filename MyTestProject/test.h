@@ -8,35 +8,24 @@
 #include<fstream>
 #include<vector>
 using namespace std;
-template<typename T>
-class matrix
+namespace test
 {
-private:
-	vector<vector<T> > arr;
-public:
-	matrix(int rows, int cols) :arr(rows)
+	class B
 	{
-		for (int i = 0; i < rows; i++)
+	public:
+		virtual B* foo()
 		{
-			arr[i].resize(cols);
+			return new B;
 		}
-	}
-	const vector<T> & operator[](int row) const
+	};
+	class D : public B
 	{
-		return arr[row];
-	}
-	vector<T> & operator[](int row)
-	{
-		return arr[row];
-	}
-	int numrows() const
-	{
-		return arr.size();
-	}
-	int numcols() const
-	{
-		reuturn numrows() ? arr[0].size() : 0;
-	}
-};
+	public:
+		virtual D* foo()
+		{
+			return new D;
+		}
+	};
+}
 #endif // !TEST_H_
 
